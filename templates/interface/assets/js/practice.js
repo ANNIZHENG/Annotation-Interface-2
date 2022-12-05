@@ -1,4 +1,3 @@
-
 // checks if the user did the screening tests and agrees the consent form 
 if (localStorage.getItem('agree_consent_form') != '1' || localStorage.getItem('stereo') != '1' || localStorage.getItem('headphone') != '1' || localStorage.getItem('survey_id') == undefined|| localStorage.getItem('survey_id') == null) window.location = '/templates/interface/incomplete.html';
 
@@ -15,7 +14,6 @@ const angle_list=[[0,-90],[0,-75],[90,-75],[180,-75],[270,-75],[100,-70],[270,-7
 survey_id = localStorage.getItem('survey_id');
 
 // check if the user goes through the whole instruction (set false at first)
-// // var read_all_rules = false;
 var read_all_rules = true;
 
 // confirm that it is the practice round

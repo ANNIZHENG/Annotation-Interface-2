@@ -1,6 +1,4 @@
-/* 
-This if statement checks if the user did the screening tests and agrees the consent form 
-*/
+// checks if the user did the screening tests and agrees the consent form 
 if (localStorage.getItem('agree_consent_form') != '1' || localStorage.getItem('stereo') != '1' || localStorage.getItem('headphone') != '1' || localStorage.getItem('survey_id') == undefined || localStorage.getItem('survey_id') == null){
 		window.location = '/templates/interface/incomplete.html';
 }
@@ -25,6 +23,7 @@ const audio_path_practice = '/templates/interface/assets/audio/practice/';
 
 let recording_list;
 let recording_list_index;
+let annotated_recording_list = JSON.parse(localStorage.getItem('annotated_recording_list'));
 
 if (localStorage.getItem('complete_practice') == '1') {
 	recording_list = JSON.parse(localStorage.getItem('recording_list'));
@@ -644,7 +643,7 @@ function submit_confirmation(){
 
 	let survey_id = localStorage.getItem('survey_id');
 	let vertical = parseInt(localStorage.getItem('vertical'));
-	var data = JSON.stringify({recording_name, location_id, source_id, practice, survey_id, vertical, timestamp});
+	var data = JSON.stringify({recording_name, location_id, source_id, practice, survey_id, vertical, timestamp, annotated_recording_list});
 
 	request_submit.send(data);
 	request_submit.onreadystatechange = function() {

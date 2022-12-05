@@ -178,6 +178,7 @@ def submit_confirmation():
         source_id = data['source_id'].split(',')
         location_id = data['location_id'].split(',')
         survey_id = str(data['survey_id'])
+        annotated_recording_list = data['annotated_recording_list']
 
         # set up the variable first
         vertical = None
@@ -223,10 +224,13 @@ def submit_confirmation():
 
         eng.execute('''update "Interaction" set annotation_id = ''' + "'" + annotation_id + "' where annotation_id = '" + survey_id + "'")
 
-        if (not practice):
-            eng.execute('''update "Recording" set num_annotation = num_annotation + 1 where id = '''+ str(recording_id))
+        if (not practice and len(annotated_recording_list) == 12):
+            for recording_id in annotated_recording_list:
+                eng.execute('''update "Recording" set num_annotation = num_annotation + 1 where id = '''+ str(recording_id))
+            
             eng.execute('''update "Survey" set completed = true where survey_id = ''' + "'" + survey_id + "'")
 
+            #? DO I STILL NEED THIS COLUMN?
             if (recording_id <= 96):
                 place_folder = "horizontal_vertical"
             elif (recording_id >= 97 and recording_id <= 192):
