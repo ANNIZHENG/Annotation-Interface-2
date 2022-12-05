@@ -1,6 +1,6 @@
 # Annotation Interface
 
-Please create a postgresql database beforehand and change the path in server/db_tables.py line 7 to the current database path
+Please create a postgresql database beforehand and change the path in server/db_tables.py line 6 the current database path
 
 Headphone Check program link: https://github.com/mcdermottLab/HeadphoneCheck
 
