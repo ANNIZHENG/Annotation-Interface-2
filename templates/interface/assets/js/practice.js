@@ -14,7 +14,7 @@ const angle_list=[[0,-90],[0,-75],[90,-75],[180,-75],[270,-75],[100,-70],[270,-7
 survey_id = localStorage.getItem('survey_id');
 
 // check if the user goes through the whole instruction (set false at first)
-var read_all_rules = true;
+var read_all_rules = false;
 
 // confirm that it is the practice round
 localStorage.setItem('practice_boolean', 1);
