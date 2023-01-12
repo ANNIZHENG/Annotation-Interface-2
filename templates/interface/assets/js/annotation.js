@@ -4149,7 +4149,7 @@ container.appendChild(renderer.domElement);
 
 camera.lookAt(sphere.position);
 
-controls = new OrbitControls(camera,renderer.domElement);
+controls = new Three.OrbitControls(camera,renderer.domElement);
 controls.minDistance = 1;
 controls.maxDistance = 500;
 
