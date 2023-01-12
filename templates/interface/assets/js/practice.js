@@ -4167,7 +4167,7 @@ var nose = new THREE.Mesh(noseGeometry, noseMaterial);
 nose.position.set(0,0,7.4);
 nose.rotation.y = 90;
 
-var frameGeometry = new THREE.SphereBufferGeometry(15,20,20);
+var frameGeometry = new THREE.SphereGeometry(15,20,20);
 var frameMaterial = new THREE.MeshLambertMaterial({});
 var frame = new THREE.Mesh(frameGeometry, frameMaterial);
 var edgesGeometry = new THREE.EdgesGeometry(frameGeometry);

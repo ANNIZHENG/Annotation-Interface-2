@@ -156,14 +156,6 @@ def select_recording():
 
         for r in result:
             if ((int(dict(r)['num_annotation']) < 3) and (recording not in annotated_recording_list)):
-                # if (recording <= 96):
-                #     vertical = 1
-                # elif (recording >= 97 and recording <= 192):
-                #     vertical = 0
-                # elif (recording >= 2000 and recording <= 2049):
-                #     vertical = 1
-                # else:
-                #     vertical = 0
                 vertical = 0
                 return "{" + '''"recording_name":{"0":''' + '"' + str(dict(r)['recording_name']) + '"' + "}," + '''"vertical":{"0":''' + str(vertical) + "}," + '''"id":{"0":''' + str(recording) + "}" + "}"
             else:
