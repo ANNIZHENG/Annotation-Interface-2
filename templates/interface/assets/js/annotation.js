@@ -50,10 +50,9 @@ else {
 	document.getElementById('audio').load();
 }
 
-/*
-creates an AJAX request to the front end to randomly select a recording for the user to annotate
-if a user refresh the page, do not change the original distributed recording
-*/
+// creates an AJAX request to the front end to randomly select a recording for the user to annotate
+// if a user refresh the page, do not change the original distributed recording
+
 function ajax_select_recording(){
 	var request_recording = new XMLHttpRequest(); 
 	request_recording.open('POST', '/select_recording', true);
@@ -156,10 +155,8 @@ var side_indicators = {
 	10: []
 };
 
-/*
-The listener updates the audio progress bar and plays the audio when the user 
-clicks the "Play" button in the instructions window
-*/
+// updates the audio progress bar and plays the audio when the user clicks the play button in the instructions window
+
 document.addEventListener('click', function(e){
 	if (e.target.id.substring(0,23) == "audio-frame-instruction") {
 		isPlaying = false;
@@ -192,11 +189,10 @@ document.addEventListener('click', function(e){
 	}
 });
 
-/* 
-The event listener change the cursor back to its original form whenever a user clicks something.
-This event listener specifically changes the cursor shape back when a user selects an action (keyboard event)
-and does nothing 
+/*
+changes the cursor back to its original form in all click events
 */
+
 document.querySelector('body').addEventListener("mouseup",function(){
 	delete_annotation = false;
 	suppress = false;

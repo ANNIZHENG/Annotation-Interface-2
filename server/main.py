@@ -114,9 +114,6 @@ def next():
     return 'success'
 
 # select_recording() receives AJAX request from the frontend to randomly select a recording
-# from either horizontal or horizontal_vertical folder for the Annotation page
-# This method is triggered when Annotation page is loaded
-# recording is selected based on the level it has
 
 @app.route('/select_recording', methods=['GET', 'POST'])
 def select_recording():
@@ -130,22 +127,28 @@ def select_recording():
         # id of recordings that are available to be annotated
         if (recording_level == 1 or recording_level == 2):
             # level 1
-            all_ids = [15,7,6,1,12,14,5,16,2,3,9,112,105,108,111,110,99,97,98,2002,2000,101,102,103,2091,2044,2052,2050]
+            # all_ids = [15,7,6,1,12,14,5,16,2,3,9,112,105,108,111,110,99,97,98,2002,2000,101,102,103,2091,2044,2052,2050]
+            all_ids = [112,105,108,111,110,99,97,98,101,102,103,2091,2052,2050]
         elif (recording_level == 3 or recording_level == 4):
             # level 2
-            all_ids = [18,17,116,114,124,119,113,2003,2004,126,28,20,2005,31,2032,2034,127,30,128,23,32,2006,2033,2054,2055,2094,2083,2053,2056,2082]
+            # all_ids = [18,17,116,114,124,119,113,2003,2004,126,28,20,2005,31,2032,2034,127,30,128,23,32,2006,2033,2054,2055,2094,2083,2053,2056,2082]
+            all_ids = [116,114,124,119,113,126,127,128,2054,2055,2094,2083,2053,2056,2082]
         elif (recording_level == 5 or recording_level == 6):
             # level 3
-            all_ids = [37,131,38,48,44,138,2035,2007,42,143,133,35,130,36,132,144,34,47,134,140,2057,2084,2045,2097]
+            # all_ids = [37,131,38,48,44,138,2035,2007,42,143,133,35,130,36,132,144,34,47,134,140,2057,2084,2045,2097]
+            all_ids = [131,138,143,133,130,132,144,134,140,2057,2084,2097]
         elif (recording_level == 7 or recording_level == 8):
             # level 4
-            all_ids = [2014,50,2038,2011,2012,160,2009,52,2013,64,148,146,2037,62,2036,158,2063,2086,2095,2092,2061,2059,2062,2046,2085,2064]
+            # all_ids = [2014,50,2038,2011,2012,160,2009,52,2013,64,148,146,2037,62,2036,158,2063,2086,2095,2092,2061,2059,2062,2046,2085,2064]
+            all_ids = [160,148,146,158,2063,2086,2095,2092,2061,2059,2062,2085,2064]
         elif (recording_level == 9 or recording_level == 10):
             # level 5
-            all_ids = [2039,2018,2019,2041,2020,170,2015,74,167,71,70,169,73,2016,2040,2021,166,2087,2070,2069,2093,2096,2065,2072,2071,2066,2047,2088,2022,2068]
+            # all_ids = [2039,2018,2019,2041,2020,170,2015,74,167,71,70,169,73,2016,2040,2021,166,2087,2070,2069,2093,2096,2065,2072,2071,2066,2047,2088,2022,2068]
+            all_ids = [170,167,169,166,2087,2070,2069,2093,2096,2065,2072,2071,2066,2088,2068]
         elif (recording_level == 11 or recording_level == 12):
             # level 6
-            all_ids = [95,86,178,2024,2023,2026,84,182,2030,2025,2028,191,180,2029,82,2076,2043,2073,2074,2098,2048,2080,2089,2090,2075,2078,2042,2049,2079,2099]
+            # all_ids = [95,86,178,2024,2023,2026,84,182,2030,2025,2028,191,180,2029,82,2076,2043,2073,2074,2098,2048,2080,2089,2090,2075,2078,2042,2049,2079,2099]
+            all_ids = [178,182,191,180,2076,2073,2074,2098,2080,2089,2090,2075,2078,2079,2099]
 
         recording = all_ids[randrange(len(all_ids))]
         
@@ -153,14 +156,15 @@ def select_recording():
 
         for r in result:
             if ((int(dict(r)['num_annotation']) < 3) and (recording not in annotated_recording_list)):
-                if (recording <= 96):
-                    vertical = 1
-                elif (recording >= 97 and recording <= 192):
-                    vertical = 0
-                elif (recording >= 2000 and recording <= 2049):
-                    vertical = 1
-                else:
-                    vertical = 0
+                # if (recording <= 96):
+                #     vertical = 1
+                # elif (recording >= 97 and recording <= 192):
+                #     vertical = 0
+                # elif (recording >= 2000 and recording <= 2049):
+                #     vertical = 1
+                # else:
+                #     vertical = 0
+                vertical = 0
                 return "{" + '''"recording_name":{"0":''' + '"' + str(dict(r)['recording_name']) + '"' + "}," + '''"vertical":{"0":''' + str(vertical) + "}," + '''"id":{"0":''' + str(recording) + "}" + "}"
             else:
                 break
