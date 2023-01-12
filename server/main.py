@@ -227,14 +227,15 @@ def submit_confirmation():
             eng.execute('''update "Survey" set completed = true where survey_id = ''' + "'" + survey_id + "'")
 
             #? DO I STILL NEED THIS COLUMN?
-            if (recording_id <= 96):
-                place_folder = "horizontal_vertical"
-            elif (recording_id >= 97 and recording_id <= 192):
-                place_folder = "horizontal"
-            elif (recording_id >= 2000 and recording_id <= 2049):
-                place_folder = "horizontal_vertical"
-            else:
-                place_folder = "horizontal"
+            # if (recording_id <= 96):
+            #     place_folder = "horizontal_vertical"
+            # elif (recording_id >= 97 and recording_id <= 192):
+            #     place_folder = "horizontal"
+            # elif (recording_id >= 2000 and recording_id <= 2049):
+            #     place_folder = "horizontal_vertical"
+            # else:
+            #     place_folder = "horizontal"
+            place_folder = "horizontal"
             
             eng.execute('''update "Survey" set recording_id = ''' + str(recording_id) + " where survey_id = '" + survey_id + "' and recording_id is null")
             eng.execute('''update "Survey" set horizontal_or_vertical = ''' + "'" + place_folder + "'" + ''' where survey_id = ''' + "'" + survey_id + "' and (recording_id < 193 or recording_id > 197)")
