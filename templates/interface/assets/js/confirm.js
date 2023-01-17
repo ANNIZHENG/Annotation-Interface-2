@@ -654,7 +654,7 @@ function submit_confirmation(){
 			}
 		}
 	}
-	// return true;
+	return true;
 }
 
 /*
