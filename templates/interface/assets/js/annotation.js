@@ -45,7 +45,7 @@ if (localStorage.getItem('prevent_refresh') == null || localStorage.getItem('pre
 else {
 	vertical = localStorage.getItem('vertical');
 	let file_name = vertical ? "horizontal_vertical" : "horizontal";
-	recording_name = localStorage.getItem('recording');
+	// recording_name = localStorage.getItem('recording');
 	document.getElementById('source').src = audio_path+'/recording/'+ file_name + "/" + recording_name;
 	document.getElementById('audio').load();
 }
@@ -661,11 +661,13 @@ function ajax_next(){
 				window.alert("Something is wrong. We recommend to restart the task. We are sorry about that.");
 				return;
 			}
+			else {
+				window.location = '/templates/interface/confirm.html';
+			}
 		}
 	}
 	localStorage.setItem('practice', 0);
 	localStorage.setItem('practice_boolean', 0);
-	window.location = '/templates/interface/confirm.html';
 }
 
 /*
