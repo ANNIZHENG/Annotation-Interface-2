@@ -109,8 +109,8 @@ var key_perform = false;
 // user control of audio
 var isPlaying = false;
 
-// model box
-var model = document.getElementById("model");
+// modal (I know I misspell it, but somehow it doesn't work with model)
+var modal = document.getElementById("modal");
 
 // instruction number
 var curr_instruction = 1;
@@ -351,7 +351,7 @@ pop General Instructions
 */
 function popRules(e){ 
 	e.preventDefault();
-	model.style.display = "block";
+	modal.style.display = "block";
 	document.getElementById('instruction-proceed').style.display = 'none';
 	document.getElementById('instruction-right').style.display = '';
 	document.getElementById('instruction'+curr_instruction).style.display = 'none';
@@ -374,7 +374,7 @@ function closeRules(e){
 		document.getElementById(audio_id).pause();
 		document.getElementById(audios[i].id ).innerHTML = 'Play an Example';
 	}
-	model.style.display = "none";
+	modal.style.display = "none";
 }
 
 /*

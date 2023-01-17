@@ -14,7 +14,7 @@ var actual_num_source;
 var recording_name = '';
 var curr_instruction = 1;
 var practice = -1;
-var model = document.getElementById("model");
+var modal = document.getElementById("modal");
 const totalInstructions = 8;
 const colors = [0x009dff, 0xff7f0e, 0x00ff00, 0xff0000, 0x9467bd, 0xd3d3d3, 0xc39b77, 0xe377c2, 0xbcbd22, 0x00ffff];
 const css_colors = ["#009dff", "#ff7f0e", "#00ff00", "#ff0000", "#9467bd", "#d3d3d3", "#c39b77", "#e377c2", "#bcbd22", "#00ffff"];
@@ -129,7 +129,7 @@ pop General Instructions
 */
 function popRules(e){ 
 	e.preventDefault();
-	model.style.display = "block";
+	modal.style.display = "block";
 	document.getElementById('instruction-proceed').style.display = 'none';
 	document.getElementById('instruction-right').style.display = '';
 	document.getElementById('instruction'+curr_instruction).style.display = 'none';
@@ -151,7 +151,7 @@ function closeRules(e){
 		document.getElementById(audio_id).pause();
 		document.getElementById(audios[i].id ).innerHTML = 'Play an Example';
 	}
-	model.style.display = "none";
+	modal.style.display = "none";
 }
 
 /*
