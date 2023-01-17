@@ -647,11 +647,14 @@ function submit_confirmation(){
 			if (request_submit.responseText != 'success' && practice != 1){
 				// this is triggered only when the actual data are not saved
 				window.alert("Something is wrong. We recommend to restart the task. We are sorry about that.");
-				return;
+				return false;
 			}
 		}
+		else {
+			return true;
+		}
 	}
-	return true;
+	// return true;
 }
 
 /*
