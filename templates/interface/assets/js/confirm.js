@@ -14,7 +14,7 @@ var actual_num_source;
 var recording_name = '';
 var curr_instruction = 1;
 var practice = -1;
-var modal = document.getElementById("modal");
+var model = document.getElementById("model");
 const totalInstructions = 8;
 const colors = [0x009dff, 0xff7f0e, 0x00ff00, 0xff0000, 0x9467bd, 0xd3d3d3, 0xc39b77, 0xe377c2, 0xbcbd22, 0x00ffff];
 const css_colors = ["#009dff", "#ff7f0e", "#00ff00", "#ff0000", "#9467bd", "#d3d3d3", "#c39b77", "#e377c2", "#bcbd22", "#00ffff"];
@@ -129,7 +129,7 @@ pop General Instructions
 */
 function popRules(e){ 
 	e.preventDefault();
-	modal.style.display = "block";
+	model.style.display = "block";
 	document.getElementById('instruction-proceed').style.display = 'none';
 	document.getElementById('instruction-right').style.display = '';
 	document.getElementById('instruction'+curr_instruction).style.display = 'none';
@@ -151,7 +151,7 @@ function closeRules(e){
 		document.getElementById(audio_id).pause();
 		document.getElementById(audios[i].id ).innerHTML = 'Play an Example';
 	}
-	modal.style.display = "none";
+	model.style.display = "none";
 }
 
 /*
@@ -325,7 +325,7 @@ and the colors of each annotation dot from the database and display them to the 
 function confirm_annotation(){
 	var request = new XMLHttpRequest(); 
 	request.open('POST', '/confirm_annotation');
-	let vertical = parseInt(localStorage.getItem('vertical'))
+	let vertical = parseInt(localStorage.getItem('vertical'));
 
 	recording_name = localStorage.getItem('recording')
 	request.onreadystatechange = function() {
@@ -350,8 +350,7 @@ function confirm_annotation(){
 
 			let recording_file_name = ''
 			if (vertical == 2) recording_file_name = "practice";
- 			else if (vertical == 0) recording_file_name = "horizontal";
-			else recording_file_name = "horizontal_vertical";
+			else recording_file_name = "horizontal";
 
 			if (parseInt(localStorage.getItem('practice_boolean'))) document.getElementById('original-audio-source').src = audio_path_practice + localStorage.getItem('recording');
 			else document.getElementById('original-audio-source').src = audio_path + "/recording/" + recording_file_name + '/' + localStorage.getItem('recording');

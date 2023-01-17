@@ -109,8 +109,8 @@ var key_perform = false;
 // user control of audio
 var isPlaying = false;
 
-// modal box
-var modal = document.getElementById("modal");
+// model box
+var model = document.getElementById("model");
 
 // instruction number
 var curr_instruction = 1;
@@ -351,7 +351,7 @@ pop General Instructions
 */
 function popRules(e){ 
 	e.preventDefault();
-	modal.style.display = "block";
+	model.style.display = "block";
 	document.getElementById('instruction-proceed').style.display = 'none';
 	document.getElementById('instruction-right').style.display = '';
 	document.getElementById('instruction'+curr_instruction).style.display = 'none';
@@ -374,7 +374,7 @@ function closeRules(e){
 		document.getElementById(audio_id).pause();
 		document.getElementById(audios[i].id ).innerHTML = 'Play an Example';
 	}
-	modal.style.display = "none";
+	model.style.display = "none";
 }
 
 /*
