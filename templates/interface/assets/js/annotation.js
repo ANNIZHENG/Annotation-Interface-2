@@ -28,10 +28,10 @@ let recording_list_index = localStorage.getItem('recording_list_index');
 
 // select which one of the 12 recordings
 let recording_level = recording_list[recording_list_index];
+let recording_name = localStorage.getItem('recording');
 
 var survey_id = localStorage.getItem('survey_id');
 var practice = 0;
-var recording_name = '';
 var vertical = -1;
 var totalInstructions = 8;
 var gaussian = document.querySelector('.gaussian');
