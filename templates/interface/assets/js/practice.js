@@ -141,7 +141,7 @@ document.addEventListener('click', function(e) {
 
 		var audios = document.getElementsByClassName('audio-frame-instruction');
 
-		playing_id = '';
+		let playing_id = '';
 
 		for(let i = 0; i < audios.length; i++) {
 			audio_id = "audio" + audios[i].id.replace("audio-frame-instruction","");
@@ -324,7 +324,7 @@ pop Keyboard Rule
 */
 function popKeyRules(e){
 	e.preventDefault();
-	window.alert("Press [Option] or [Alt] key to add an annotation once you see the cursor turning to '+'. Press [Control] or [Ctrl] key to delete an annotation once you see the cursor turning to '-'. Deleting an annotation means to delete both its annotated horizontal location and vertical location.")
+	window.alert("Press [Option] or [Alt] key to add an annotation once you see the cursor turning to '+'. Press [Control] or [Ctrl] key to delete an annotation once you see the cursor turning to '-'. Deleting an annotation means to delete both its annotated horizontal location and vertical location.");
 }
 
 /*
@@ -2347,9 +2347,9 @@ function keyboardEvents(e){
 				document.onclick = null;
 				document.onkeydown = null;
 
-				value = curr_elevation
+				value = curr_elevation;
 				timestamp = Date.now();
-				action_type = 'elevation'
+				action_type = 'elevation';
 				ajax_interaction();
 			}
 			else if (enable_side){
@@ -2482,7 +2482,7 @@ function keyboardEvents(e){
 				document.onclick = null;
 				document.onkeydown = null;
 
-				value = curr_elevation
+				value = curr_elevation;
 				timestamp = Date.now();
 				action_type = 'elevation'
 				ajax_interaction();

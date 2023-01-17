@@ -163,7 +163,7 @@ document.addEventListener('click', function(e){
 		document.getElementById('audio').pause();
 		document.getElementById('audio-frame').innerHTML='Play Audio';
 		var audios = document.getElementsByClassName('audio-frame-instruction');
-		playing_id = ''
+		let playing_id = '';
 		for(let i = 0; i < audios.length; i++) {
 			audio_id = "audio" + audios[i].id.replace("audio-frame-instruction","");
 			if (audios[i].id != e.target.id) {
@@ -343,7 +343,7 @@ pop Keyboard Rule
 */
 function popKeyRules(e){
 	e.preventDefault();
-	window.alert("Press [Option] or [Alt] key to add an annotation once you see the cursor turning to '+'. Press the [Control] or [Ctrl] key to delete an annotation once you see the cursor turning to '-'. Deleting an annotation means to delete both its annotated horizontal location and vertical location.")
+	window.alert("Press [Option] or [Alt] key to add an annotation once you see the cursor turning to '+'. Press the [Control] or [Ctrl] key to delete an annotation once you see the cursor turning to '-'. Deleting an annotation means to delete both its annotated horizontal location and vertical location.");
 }
 
 /*
@@ -612,7 +612,7 @@ function askProceed(){
 	if (findUndefinedAzimuth() != findUndefinedElevation()) { window.alert("You must annotate both the horizontal location and the vertical location to fully annotate each sound's spatial location"); return false; }
 	if (findUndefinedAzimuth() == -2 || findUndefinedAzimuth() == -2) { window.alert("You can’t annotate more sounds than the number of distinct sounds selected. Please delete the additional location annotation(s)"); return false; }
 	if (findUndefinedAzimuth() != -1 || findUndefinedElevation() != -1 ) { 
-		if (confirm("You haven’t annotated all sounds yet (your selected source count is greater than the number of your annotation). Do you still want to proceed?")) return true;
+		if (confirm("You haven’t annotated all sounds yet (your selected source count is greater than the number of your annotation). Do you still want to proceed?")) { return true; }
 		else return false;
 	}
 	return true;
@@ -2236,9 +2236,9 @@ function keyboardEvents(e){
 				document.onclick = null;
 				document.onkeydown = null;
 
-				value = curr_elevation
+				value = curr_elevation;
 				timestamp = Date.now();
-				action_type = 'elevation'
+				action_type = 'elevation';
 				ajax_interaction();
 			}
 			else if (enable_side){
@@ -2371,9 +2371,9 @@ function keyboardEvents(e){
 				document.onclick = null;
 				document.onkeydown = null;
 
-				value = curr_elevation
+				value = curr_elevation;
 				timestamp = Date.now();
-				action_type = 'elevation'
+				action_type = 'elevation';
 				ajax_interaction();
 			}
 
