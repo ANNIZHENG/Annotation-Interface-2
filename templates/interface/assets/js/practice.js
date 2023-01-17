@@ -48,6 +48,7 @@ else {
 	}
 }
 
+localStorage.setItem('recording', recording_names[curr_recording]);
 document.getElementById('source').src = audio_path + recording_names[curr_recording];
 document.getElementById('audio').load();
 
@@ -840,10 +841,12 @@ function ajax_next(){
 				window.alert("Something is wrong. We recommend to restart the task. We are sorry about that.");
 				return;
 			}
+			else {
+				window.location = '/templates/interface/confirm.html';
+			}
 		}
 	}
 	localStorage.setItem('recording', recording_names[curr_recording]);
-	window.location = '/templates/interface/confirm.html';
 }
 
 /*
