@@ -11,7 +11,6 @@ var locations = {};
 var sources = {};
 var user_num_source;
 var actual_num_source;
-var recording_name = '';
 var curr_instruction = 1;
 var practice = -1;
 var modal = document.getElementById("modal");
@@ -20,7 +19,9 @@ const colors = [0x009dff, 0xff7f0e, 0x00ff00, 0xff0000, 0x9467bd, 0xd3d3d3, 0xc3
 const css_colors = ["#009dff", "#ff7f0e", "#00ff00", "#ff0000", "#9467bd", "#d3d3d3", "#c39b77", "#e377c2", "#bcbd22", "#00ffff"];
 const audio_path = 'https://assets-audio2.s3.amazonaws.com/audio'
 const audio_path_practice = '/templates/interface/assets/audio/practice/';
-
+let survey_id = localStorage.getItem('survey_id');
+let vertical = parseInt(localStorage.getItem('vertical'));
+let recording_name = localStorage.getItem('recording');
 let recording_list;
 let recording_list_index;
 let annotated_recording_list = JSON.parse(localStorage.getItem('annotated_recording_list'));
@@ -325,10 +326,7 @@ and the colors of each annotation dot from the database and display them to the 
 function confirm_annotation(){
 	var request = new XMLHttpRequest(); 
 	request.open('POST', '/confirm_annotation');
-	let vertical = parseInt(localStorage.getItem('vertical'));
-	console.log(vertical);
 
-	recording_name = localStorage.getItem('recording');
 	request.onreadystatechange = function() {
 		if (request.readyState == 4){
 			if (parseInt(localStorage.getItem('practice_boolean'))) {
@@ -416,7 +414,6 @@ function confirm_annotation(){
 		}
 	}
 
- 	let survey_id = localStorage.getItem('survey_id');
 	request.setRequestHeader('content-type', 'application/json;charset=UTF-8');
 	var data = JSON.stringify({recording_name, survey_id, vertical});
 	request.send(data);
@@ -644,8 +641,6 @@ function submit_confirmation(){
 	request_submit.open('POST', '/submit_confirmation', true);
 	request_submit.setRequestHeader('content-type', 'application/json;charset=UTF-8');
 
-	let survey_id = localStorage.getItem('survey_id');
-	let vertical = parseInt(localStorage.getItem('vertical'));
 	var data = JSON.stringify({recording_name, location_id, source_id, practice, survey_id, vertical, timestamp, annotated_recording_list});
 
 	request_submit.send(data);
