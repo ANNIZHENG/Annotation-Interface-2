@@ -649,9 +649,9 @@ function submit_confirmation(){
 				window.alert("Something is wrong. We recommend to restart the task. We are sorry about that.");
 				return false;
 			}
-		}
-		else {
-			return true;
+			else {
+				return true;
+			}
 		}
 	}
 	// return true;
