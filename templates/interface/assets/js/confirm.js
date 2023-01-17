@@ -339,6 +339,8 @@ function confirm_annotation(){
 				document.getElementById('btn-button-submit').style.display = '';
 			}
 
+			console.log(request.response);
+
 			document.getElementById("user_note").value = localStorage.getItem("user_note");
 			color = JSON.parse(request.response)["color"];
 			azimuth = JSON.parse(request.response)["azimuth"];
