@@ -603,7 +603,7 @@ This method sends an AJAX request to the backend to store the matching between t
 The matching is determined by the matching between the sequence of the annotation dots with the sequence of the checks
 */
 var request_submit = new XMLHttpRequest(); 
-function submit_confirmation(){
+function submit_confirmation() {
 	let location_id = '';
 	let source_id = ''
 	let total_confirmation_num = 0;
@@ -643,6 +643,8 @@ function submit_confirmation(){
 	var data = JSON.stringify({recording_name, location_id, source_id, practice, survey_id, vertical, timestamp, annotated_recording_list});
 
 	request_submit.send(data);
+	
+	return true;
 }
 
 /*
