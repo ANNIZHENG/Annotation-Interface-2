@@ -2,7 +2,7 @@
 if (localStorage.getItem('agree_consent_form') != '1' || localStorage.getItem('stereo') != '1' || localStorage.getItem('headphone') != '1' || localStorage.getItem('survey_id') == undefined|| localStorage.getItem('survey_id') == null) window.location = '/templates/interface/incomplete.html';
 
 var survey_id = '';
-var curr_recording = 0;
+var curr_recording = parseInt(localStorage.getItem('practice'));
 var totalInstructions = 8;
 var practice = 1;
 var gaussian = document.querySelector('.gaussian');
@@ -41,7 +41,7 @@ else if (parseInt(localStorage.getItem('practice')) > totalPractice) {
 	document.getElementById('sign').style.visibility = '';
 }
 else {
-	curr_recording = localStorage.getItem('practice');
+	curr_recording = parseInt(localStorage.getItem('practice'));
 	if (parseInt(localStorage.getItem('read_all_rules'))){
 		read_all_rules = true;
 		document.getElementById('sign').style.visibility = '';
