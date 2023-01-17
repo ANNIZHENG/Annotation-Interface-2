@@ -602,6 +602,7 @@ function addLocation(coordinates) {
 This method sends an AJAX request to the backend to store the matching between the annotation dots and the sub-audio files
 The matching is determined by the matching between the sequence of the annotation dots with the sequence of the checks
 */
+var request_submit = new XMLHttpRequest(); 
 function submit_confirmation(){
 	let location_id = '';
 	let source_id = ''
@@ -635,26 +636,13 @@ function submit_confirmation(){
 	source_id = source_id.substring(0,source_id.length-1);
 	timestamp = Date.now();
 
-	var request_submit = new XMLHttpRequest(); 
+	// var request_submit = new XMLHttpRequest(); 
 	request_submit.open('POST', '/submit_confirmation', true);
 	request_submit.setRequestHeader('content-type', 'application/json;charset=UTF-8');
 
 	var data = JSON.stringify({recording_name, location_id, source_id, practice, survey_id, vertical, timestamp, annotated_recording_list});
 
 	request_submit.send(data);
-	request_submit.onreadystatechange = function() {
-		if (request_submit.readyState == 4){
-			if (request_submit.responseText != 'success' && practice != 1){
-				// this is triggered only when the actual data are not saved
-				window.alert("Something is wrong. We recommend to restart the task. We are sorry about that.");
-				return false;
-			}
-			else {
-				return true;
-			}
-		}
-	}
-	return true;
 }
 
 /*
@@ -662,18 +650,27 @@ This event listener is triggerd when a user completes the actual annotation
 */
 document.getElementById('btn-button-submit').addEventListener('click', function(){
 	if (submit_confirmation()) {
-		// update recording_list;
-		recording_list.splice(recording_list_index, 1);
-		localStorage.setItem('recording_list', JSON.stringify(recording_list));
-		localStorage.setItem('recording_list_index', null);
-		localStorage.setItem('prevent_refresh', null);
+		request_submit.onreadystatechange = function() {
+			if (request_submit.readyState == 4){
+				if (request_submit.responseText != 'success' && practice != 1){
+					// this is triggered only when the actual data are not saved
+					window.alert("Something is wrong. We recommend to restart the task. We are sorry about that.");
+				}
+				else {
+					recording_list.splice(recording_list_index, 1);
+					localStorage.setItem('recording_list', JSON.stringify(recording_list));
+					localStorage.setItem('recording_list_index', null);
+					localStorage.setItem('prevent_refresh', null);
 
-		if (recording_list.length == 0) {
-			localStorage.setItem('complete_annotation',1);
-			window.location = '/templates/interface/submit.html';
-		}
-		else {
-			window.location = '/templates/interface/annotation.html';
+					if (recording_list.length == 0) {
+						localStorage.setItem('complete_annotation',1);
+						window.location = '/templates/interface/submit.html';
+					}
+					else {
+						window.location = '/templates/interface/annotation.html';
+					}
+				}
+			}
 		}
 	}
 });
@@ -682,9 +679,19 @@ This event listener is triggerd when a user completes one practice round and wou
 */
 document.getElementById('btn-button-again').addEventListener('click', function(){
 	if (submit_confirmation()) {
-		let curr_recording = parseInt(localStorage.getItem('practice'))+1;
-		localStorage.setItem('practice', curr_recording);
-		window.location = '/templates/interface/practice.html';
+		request_submit.onreadystatechange = function() {
+			if (request_submit.readyState == 4){
+				if (request_submit.responseText != 'success' && practice != 1){
+					// this is triggered only when the actual data are not saved
+					window.alert("Something is wrong. We recommend to restart the task. We are sorry about that.");
+				}
+				else {
+					let curr_recording = parseInt(localStorage.getItem('practice'))+1;
+					localStorage.setItem('practice', curr_recording);
+					window.location = '/templates/interface/practice.html';
+				}
+			}
+		}
 	}
 });
 /*
@@ -693,9 +700,19 @@ enter the actual annotation interface
 */
 document.getElementById('btn-button-next').addEventListener('click', function(){
 	if (submit_confirmation()) {
-		localStorage.setItem('complete_practice',1);
-		localStorage.setItem('practice_boolean',0);
-		window.location = '/templates/interface/annotation.html';
+		request_submit.onreadystatechange = function() {
+			if (request_submit.readyState == 4){
+				if (request_submit.responseText != 'success' && practice != 1){
+					// this is triggered only when the actual data are not saved
+					window.alert("Something is wrong. We recommend to restart the task. We are sorry about that.");
+				}
+				else {
+					localStorage.setItem('complete_practice',1);
+					localStorage.setItem('practice_boolean',0);
+					window.location = '/templates/interface/annotation.html';
+				}
+			}
+		}
 	}
 });
 
