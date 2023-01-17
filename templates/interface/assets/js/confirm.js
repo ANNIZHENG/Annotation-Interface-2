@@ -326,6 +326,7 @@ function confirm_annotation(){
 	var request = new XMLHttpRequest(); 
 	request.open('POST', '/confirm_annotation');
 	let vertical = parseInt(localStorage.getItem('vertical'));
+	console.log(vertical);
 
 	recording_name = localStorage.getItem('recording');
 	request.onreadystatechange = function() {
@@ -414,7 +415,7 @@ function confirm_annotation(){
 			}
 		}
 	}
-	console.log(recording_name); //TODO:
+
  	let survey_id = localStorage.getItem('survey_id');
 	request.setRequestHeader('content-type', 'application/json;charset=UTF-8');
 	var data = JSON.stringify({recording_name, survey_id, vertical});
