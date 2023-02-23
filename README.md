@@ -1,4 +1,6 @@
-# Annotation Interface
+# Annotation Interface 2
+
+## Set Up the Interface
 
 Please create a postgresql database beforehand and change the path in server/db_tables.py line 6 the current database path
 
