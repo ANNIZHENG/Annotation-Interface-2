@@ -1,7 +1,7 @@
 // checks if the user did the screening tests and agrees the consent form 
-// if (localStorage.getItem('agree_consent_form') != '1' || localStorage.getItem('stereo') != '1' || localStorage.getItem('headphone') != '1' || localStorage.getItem('survey_id') == undefined || localStorage.getItem('survey_id') == null){
-// 		window.location = '/templates/interface/incomplete.html';
-// }
+//! if (localStorage.getItem('agree_consent_form') != '1' || localStorage.getItem('stereo') != '1' || localStorage.getItem('headphone') != '1' || localStorage.getItem('survey_id') == undefined || localStorage.getItem('survey_id') == null){
+//! 		window.location = '/templates/interface/incomplete.html';
+//! }
 
 var file_name = {};
 var azimuth = {};
@@ -659,19 +659,20 @@ document.getElementById('btn-button-submit').addEventListener('click', function(
 					window.alert("Something is wrong. We recommend to restart the task. We are sorry about that.");
 				}
 				else {
-					recording_list.splice(recording_list_index, 1);
-					localStorage.setItem('recording_list', JSON.stringify(recording_list));
-					localStorage.setItem('recording_list_index', null);
-					localStorage.setItem('prevent_refresh', null);
+					//! recording_list.splice(recording_list_index, 1);
+					//! localStorage.setItem('recording_list', JSON.stringify(recording_list));
+					//! localStorage.setItem('recording_list_index', null);
+					//! localStorage.setItem('prevent_refresh', null);
 
 					//! if (recording_list.length == 0) {
-					if (recording_list.length == 11){
-						localStorage.setItem('complete_annotation',1);
-						window.location = '/templates/interface/submit.html';
-					}
-					else {
-						window.location = '/templates/interface/annotation.html';
-					}
+
+					localStorage.setItem('complete_annotation',1);
+					window.location = '/templates/interface/submit.html';
+					
+					//! }
+					//! else {
+					//! 	window.location = '/templates/interface/annotation.html';
+					//! }
 				}
 			}
 		}
