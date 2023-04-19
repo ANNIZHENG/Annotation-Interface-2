@@ -1,11 +1,11 @@
 // checks if the user does the screening tests and agrees the consent form 
-// if (localStorage.getItem('agree_consent_form') != '1' || localStorage.getItem('stereo') != '1' || localStorage.getItem('headphone') != '1' || localStorage.getItem('survey_id') == undefined || localStorage.getItem('survey_id') == null) window.location = '/templates/interface/incomplete.html';
+//! if (localStorage.getItem('agree_consent_form') != '1' || localStorage.getItem('stereo') != '1' || localStorage.getItem('headphone') != '1' || localStorage.getItem('survey_id') == undefined || localStorage.getItem('survey_id') == null) window.location = '/templates/interface/incomplete.html';
 
 // checks if a user completes at least one practice round 
-if (parseInt(localStorage.getItem('complete_practice')) != 1){
-	window.location = '/templates/interface/practice.html';
-	window.alert("You must complete the Practice Round before entering the Annotation Interface");
-}
+//! if (parseInt(localStorage.getItem('complete_practice')) != 1){
+//! 	window.location = '/templates/interface/practice.html';
+//! 	window.alert("You must complete the Practice Round before entering the Annotation Interface");
+//! }
 
 // get recording list
 
