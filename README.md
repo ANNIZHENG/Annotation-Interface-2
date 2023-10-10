@@ -1,8 +1,8 @@
-# Annotation Interface 2
+## Annotation Interface 2
 
-## NSF Project Title: III: Medium: Spatial Sound Scene Description
+### NSF Project Title: III: Medium: Spatial Sound Scene Description
 
-## Note: I closed the AWS account for storing audio files
+### Note: I closed the AWS account for storing audio files
 
 Please create a postgresql database beforehand and change the path in server/db_tables.py line 6 the current database path
 
