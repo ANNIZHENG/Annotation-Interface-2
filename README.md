@@ -8,9 +8,9 @@ Please create a postgresql database beforehand and change the path in server/db_
 
 And please create the Recording, Recording_Joint_Source, and Source tables first before launching the website
 
-Headphone Check program link: https://github.com/mcdermottLab/HeadphoneCheck
+Link to the [Headphone Check Code](https://github.com/mcdermottLab/HeadphoneCheck)
 
-You may run the program in your local environment with the following terminal commands (Mac):
+Terminal Commands for setting up virtual environemnt to run the program:
 
 ```
 virtualenv env
