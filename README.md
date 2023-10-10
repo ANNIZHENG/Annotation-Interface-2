@@ -2,8 +2,6 @@
 
 ## Note: I closed the AWS account for storing audio files
 
-## Set Up the Interface
-
 Please create a postgresql database beforehand and change the path in server/db_tables.py line 6 the current database path
 
 And please create the Recording, Recording_Joint_Source, and Source tables first before launching the website
